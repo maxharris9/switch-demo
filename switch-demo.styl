@@ -1,0 +1,75 @@
+/* Resets */
+* {
+  margin: 0;
+  padding: 0;
+  text-rendering: optimizeLegibility;
+}
+
+*:not(input) {
+  box-sizing: border-box;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+[contenteditable="true"]:active,
+[contenteditable="true"]:focus,
+[contenteditable="true"]:hover {
+  cursor: text;
+  outline: 0;
+}
+
+[contenteditable="true"]:focus {
+  color: $atlantic-blue;
+  border-bottom: 1px dashed $baby-blue;
+}
+
+[contentEditable]:empty:not(:focus):before{
+  content: attr(data-ph); // Set on an element as a data-attribute
+    color: $atlantic-blue;
+  border-bottom: 1px dashed $baby-blue;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+a, a:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+button,
+.button {
+  cursor: pointer;
+  transition: background-color 0.25s ease-out;
+  transition: color 0.25s ease-out;
+  appearance: none;
+  border: 0 none;
+  cursor: pointer;
+  text-transform: uppercase;
+  white-space: nowrap;
+  * {
+    cursor: pointer;
+  }
+  &__text {
+    padding: 0.5em 1em;
+  }
+  &:focus {
+    outline: none;
+  }
+}
+
+
+body {
+  height: 100%;
+  padding: 0;
+  font-family: 'Helvetica Neue', 'Helvetica', sans-serif;
+  font-weight: 200;
+  font-size: 16px;
+}
+
+.clearfix {
+  clear: both;
+}
