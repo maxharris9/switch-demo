@@ -1,0 +1,7 @@
+if (Meteor.isClient) {
+  Template.hello.rendered = function () {
+    var switchReactiveVar = new ReactiveVar(true);
+
+    switchSetup(false, function (switchState) { }, 'switchStub-', switchReactiveVar, generatePalette(1));
+  };
+}

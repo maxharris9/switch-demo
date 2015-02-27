@@ -1,0 +1,17 @@
+if (Meteor.isClient) {
+  var id = 0;
+  Template.hello.rendered = function () {
+    var switchReactiveVars = []; // new ReactiveVar(true);
+
+    for (var h = 0; h < 9; h++) {
+      switchReactiveVars.push(new ReactiveVar(true));
+      switchSetup(false, function (switchState) { }, 'switchStub-' + h, switchReactiveVars[h], generatePalette(h), (3 === h) ? funkyStyle : undefined);
+    }
+  };
+
+  Template.hello.helpers({
+    stubId: function () {
+      return id++;      
+    }
+  });
+}

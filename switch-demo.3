@@ -1,0 +1,36 @@
+if (Meteor.isClient) {
+  var id = 0;
+  Template.hello.rendered = function () {
+    var switchReactiveVars = [];
+
+    for (var h = 0; h < 18; h++) {
+      switchReactiveVars.push(new ReactiveVar(true));
+    }
+
+    for (var i = 0; i < 9; i++) {
+      switchSetup(false, function (switchState) {
+      }, 'switchStub-0', switchReactiveVars[0], generatePalette(i));
+    }
+
+    for (var j = 0; j < 9; j++) {
+      switchSetup(true, function (switchState) {
+      }, 'switchStub-1', switchReactiveVars[1]);
+    }
+
+    for (var k = 0; k < 9; k++) {
+      switchSetup(true, function (switchState) {
+      }, 'switchStub-2', switchReactiveVars[2]);
+    }
+
+    switchSetup(true, function (switchState) {
+      switchReactiveVars[0].set(switchState);
+      switchReactiveVars[1].set(switchState);
+    }, 'switchStub-9', switchReactiveVars[19]);
+  };
+
+  Template.hello.helpers({
+    stubId: function () {
+      return id++;      
+    }
+  });
+}
